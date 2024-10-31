@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+           <style>
+             body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color:#f0f0f0;
+                /* max-width: 200px; */
+                /* max-height: 200px; */
+               text-align: center; 
+                justify-content: center; 
+                margin: 0;
+                background: white;
+                margin:0px;
+                padding: 0px;
+                margin-top: 5px;
+                /* display: flex; */
+            }
+
+            h1{
+                   text-align: center;
+                   text-decoration: rgb(222, 196, 175);
+                   color: rgba(0, 0, 0, 0.804);
+            }
+             
+          #id{
+             
+          }
+          input[type=text]{
+           max-width: 200px;
+           max-height: 200px; 
+           margin: 5px 2px;
+           background-color: rgb(248, 245, 243);
+           border-radius: 3px;
+           justify-items: auto;
+           justify-content: center;
+         }
+
+         .button {
+          padding: 30px;
+         }
+           </style>
+</head>
+<body>
+      <h1>Stuedent Details</h1>
+      <form id="studentForm">
+
+        <label for="CollageName">Collage Name</label>
+        <input type="text" id="collageName"> <br>
+
+        <label for="courseName">Course Name</label>
+        <input type="text" id="courseName" required><br>
+
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" required><br>
+
+        <label for="StuedntUID">Stuednt UID</label>
+        <input type="text" id="StuedntUID" required><br>
+
+        <label for="StuedntMarks">Stuednt Marks</label>
+        <input type="text" id="StuedntMarks" required><br>
+
+        <label for="studentEmail">Student Email</label>
+        <input type="text" id="studentEmail" required><br>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+      </form>
+           
+      <h2>student with Marks</h2>
+      <ul id="highscores"></ul>
+
+       <h2>All student Details</h2>
+       <ul id="allStudents"></ul>
+
+     <script>
+             const courseName=document.getElementById('courseName').value;
+             const studentName=document.getElementById('studentName').value;
+             const StuedntUID=document.getElementById(' StuedntUID').value;
+             const StuedntMarks=document.getElementById('StuedntMarks').value;
+             const studentEmail=document.getElementById('studentEmail').value;
+
+
+
+              const studentForm=document.getElementById('studentForm');
+              const highscores=Document.getElementById('highscores');
+              const allStudents=document.getElementById('allStudents');
+              const students=[];
+
+              studentForm.addEventListener('submit' ,function(e){
+                  e.preventDefault();
+
+                  const courseName=document.getElementById('courseName').value;
+                  const studentName=document.getElementById('studentName').value;
+                  const StuedntUID=document.getElementById(' StuedntUID').value;
+                  const StuedntMarks=document.getElementById('StuedntMarks').value;
+                  const studentEmail=document.getElementById('studentEmail').value;
+
+                  const student={
+                    courseName,
+                    studentName,
+                    StuedntUID,
+                    StuedntMarks,
+                    studentEmail,
+
+                  };
+                  student.push(student);
+                  displaystudent();
+              })
+                  function displaystudent(){
+                    allStudents.innerHTML='';
+                    highscores.innerHTML='';
+                    students.forEach(student=>{
+                        const listItem=document.createElement('li')
+                        listItem.textContent='Name:${student.studentname},course:${course.courseNmae},UID:${studeent.studentUID},Marks:${student.studentMarks},Email:${student.studentEmail}';
+                       allStudents.appendChild(listItem);
+
+                        if(student.StuedntMarks>80){
+                            const highscoresItem=document.createElement('li');
+                            highscoresItem.textContent='Name:${student.studentname},course:${course.courseNmae},UID:${studeent.studentUID},Marks:${student.studentMarks},Email:${student.studentEmail}';
+                            highscores.appendChild(highscoresItem);
+                        }
+        
+                    })
+                  }
+
+
+              
+
+            
+
+            
+
+
+
+
+           </script>
+</body>
+</html>
